@@ -2,6 +2,13 @@
 
 Bem-vindo à documentação do **SuUAV**, uma ferramenta para construção de cenários de mobilidade com UAVs (Veículos Aéreos Não Tripulados). Esta ferramenta facilita a integração de UAVs em simulações de tráfego geradas pelo SUMO, permitindo a geração de cenários complexos e a visualização dos resultados por meio de vídeos.
 
+
+## Instalação de dependencias no Linux
+Devido ao gerenciador de pacotes do linux, é possível instalar a ferramenta pelo terminal.
+```
+sudo apt install python pip ffmpeg
+```
+
 ## Instalação
 
 Para utilizar o **SuUAV**, siga os passos abaixo:
@@ -22,17 +29,15 @@ Para utilizar o **SuUAV**, siga os passos abaixo:
     pip install -r requirements.txt
     ```
 
-3. **Instale o FFmpeg**:
-    O FFmpeg é necessário para a geração de vídeos. Siga as instruções de instalação para o seu sistema operacional em [FFmpeg Official Website](https://ffmpeg.org/).
+## Depêndencias
+
+- Python
+- pip
+- ffmpeg
+
+Caso não consiga instalar as depêndencias pelo terminal,é possível instalar nos respectivos sites das organizações
 
 
-## Instalação no Linux
-Devido ao gerenciador de pacotes do linux, é possível instalar a ferramenta pelo terminal.
-```
-sudo apt install python pip ffmpeg
-git clone https://github.com/MateusSantos14/SuUAV
-cd SuUAV
-```
 
 ## Uso Básico
 
