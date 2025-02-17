@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>example.ini - Documentação SuUAV</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "example.ini";
+        var mkdocs_page_input_path = "example.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Documentação SuUAV
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration Files</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">example.ini</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#secao-dronecircular">Seção DroneCircular</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-droneangular">Seção DroneAngular</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-dronetractor">Seção DroneTractor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-dronestatic">Seção DroneStatic</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-dronesquare">Seção DroneSquare</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-dronefollowing">Seção DroneFollowing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-exportvideo">Seção ExportVideo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-exportxml">Seção ExportXML</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-changelegend">Seção ChangeLegend</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-printvehicleinfo">Seção PrintVehicleInfo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secao-removevehicle">Seção RemoveVehicle</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../funcs/parser/">parser.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../interface/InteractivePlot/">InteractivePlot.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Source Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../src/Simulation/">Simulation.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../src/Vehicle/">Vehicle.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../src/creating_drones/">creating_drones.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../src/videomaker/">videomaker.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../src/utils/conversionMeters/">conversionMeters.py</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentação SuUAV</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Configuration Files</li>
+      <li class="breadcrumb-item active">example.ini</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="secoes-do-arquivo-de-configuracao">Seções do Arquivo de Configuração</h2>
+<ul>
+<li><strong>trace_path</strong> (<code>str</code>): Caminho do arquivo de trace a ser utilizado na simulação.</li>
+</ul>
+<h3 id="secao-dronecircular">Seção <code>DroneCircular</code></h3>
+<ul>
+<li><strong>center</strong> (<code>Tuple[float, float]</code>): Coordenadas do centro do drone circular.</li>
+<li><strong>radius_meters</strong> (<code>int</code>): Raio do drone circular em metros.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+<li><strong>start_angle</strong> (<code>int</code>, opcional): Ângulo inicial do drone. Valor padrão: <code>0</code>.</li>
+</ul>
+<h3 id="secao-droneangular">Seção <code>DroneAngular</code></h3>
+<ul>
+<li><strong>start_point</strong> (<code>Tuple[float, float]</code>): Ponto inicial do drone angular.</li>
+<li><strong>max_length</strong> (<code>int</code>): Comprimento máximo do drone angular.</li>
+<li><strong>start_angle</strong> (<code>int</code>, opcional): Ângulo inicial do drone. Valor padrão: <code>0</code>.</li>
+<li><strong>max_turns</strong> (<code>int</code>, opcional): Número máximo de voltas. Valor padrão: <code>3</code>.</li>
+<li><strong>angle_alpha</strong> (<code>int</code>, opcional): Ângulo alfa. Valor padrão: <code>30</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+</ul>
+<h3 id="secao-dronetractor">Seção <code>DroneTractor</code></h3>
+<ul>
+<li><strong>start_point</strong> (<code>Tuple[float, float]</code>): Ponto inicial do drone trator.</li>
+<li><strong>width_between_tracks</strong> (<code>int</code>): Largura entre as trilhas.</li>
+<li><strong>max_length</strong> (<code>int</code>): Comprimento máximo.</li>
+<li><strong>max_turns</strong> (<code>int</code>): Número máximo de voltas.</li>
+<li><strong>orientation</strong> (<code>str</code>, opcional): Orientação do drone. Valor padrão: <code>"horizontal"</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+</ul>
+<h3 id="secao-dronestatic">Seção <code>DroneStatic</code></h3>
+<ul>
+<li><strong>point</strong> (<code>Tuple[float, float]</code>): Ponto onde o drone estático será criado.</li>
+</ul>
+<h3 id="secao-dronesquare">Seção <code>DroneSquare</code></h3>
+<ul>
+<li><strong>center_point</strong> (<code>Tuple[float, float]</code>): Ponto central do drone quadrado.</li>
+<li><strong>side_length</strong> (<code>int</code>): Comprimento do lado do quadrado.</li>
+<li><strong>angle_degrees</strong> (<code>int</code>, opcional): Ângulo do quadrado. Valor padrão: <code>90</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+</ul>
+<h3 id="secao-dronefollowing">Seção <code>DroneFollowing</code></h3>
+<ul>
+<li><strong>vehicle_id</strong> (<code>str</code>, opcional): ID do veículo a ser seguido. Valor padrão: <code>"0"</code>.</li>
+<li><strong>offset_distance</strong> (<code>int</code>, opcional): Distância de offset. Valor padrão: <code>10</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+</ul>
+<h3 id="secao-exportvideo">Seção <code>ExportVideo</code></h3>
+<ul>
+<li><strong>video_directory</strong> (<code>str</code>): Diretório onde o vídeo será exportado.</li>
+<li><strong>limits_map</strong> (<code>Optional[Tuple[float, float]]</code>, opcional): Limites do mapa. Valor padrão: <code>0</code>.</li>
+<li><strong>only_vants</strong> (<code>int</code>, opcional): Exportar apenas vants. Valor padrão: <code>0</code>.</li>
+</ul>
+<h3 id="secao-exportxml">Seção <code>ExportXML</code></h3>
+<ul>
+<li><strong>new_xml_path</strong> (<code>str</code>): Caminho do novo arquivo XML.</li>
+<li><strong>geo</strong> (<code>int</code>, opcional): Configuração geográfica. Valor padrão: <code>1</code>.</li>
+</ul>
+<h3 id="secao-changelegend">Seção <code>ChangeLegend</code></h3>
+<ul>
+<li><strong>old_legend</strong> (<code>str</code>): Legenda antiga.</li>
+<li><strong>new_legend</strong> (<code>str</code>): Nova legenda.</li>
+</ul>
+<h3 id="secao-printvehicleinfo">Seção <code>PrintVehicleInfo</code></h3>
+<ul>
+<li><strong>vehicle_id</strong> (<code>str</code>): ID do veículo cujas informações serão impressas.</li>
+</ul>
+<h3 id="secao-removevehicle">Seção <code>RemoveVehicle</code></h3>
+<ul>
+<li><strong>vehicle_id</strong> (<code>str</code>): ID do veículo a ser removido.</li>
+</ul>
+<h1 id="exemplo-de-arquivo-de-configuracao">Exemplo de arquivo de configuração</h1>
+<pre><code>[Simulation]
+trace_path = manhattan.xml
+
+[DroneCircular]
+center = -73.986478, 40.744406
+radius_meters = 40
+max_speed = 10
+start_angle = 0
+
+[DroneAngular]
+start_point = -73.983754, 40.745802
+max_length = 40
+max_turns = 3
+angle_alpha = 30
+max_speed = 10
+
+[DroneTractor]
+start_point = -73.983754, 40.745802
+width_between_tracks = 70
+max_length = 100
+max_turns = 6
+orientation = vertical
+max_speed = 10
+
+[DroneStatic]
+point = -73.983754, 40.745802
+
+[DroneFollowing]
+vehicle_id = 14
+offset_distance = 10
+max_speed = 10
+
+[DroneSquare]
+center_point = -73.983754, 40.745802
+side_length = 50
+angle_degrees = 90
+max_speed = 10
+
+[ChangeLegend1]
+old_legend = VANT
+new_legend = UAV
+
+[ChangeLegend2]
+old_legend = type
+new_legend = Car
+
+[ExportVideo]
+video_directory = output_video
+only_vants = 0
+
+[ExportXML]
+new_xml_path = output_simulation.xml
+geo = 0
+</code></pre>
+<h1 id="detalhes">Detalhes:</h1>
+<p>Ao criar o arquivo de configuração, é importante manter uma ordem coesa. As configurações são lidas na ordem, então, se for remover um veiculo, o comando deve vir antes da exportação.
+Se for alterar alguma legenda do vídeo, o comando deve vir antes de exportar para vídeo.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../funcs/parser/" class="btn btn-neutral float-right" title="parser.py">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../funcs/parser/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

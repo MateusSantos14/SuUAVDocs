@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>InteractivePlot.py - Documentação SuUAV</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "InteractivePlot.py";
+        var mkdocs_page_input_path = "interface\\InteractivePlot.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentação SuUAV
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration Files</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../example/">example.ini</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../funcs/parser/">parser.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">InteractivePlot.py</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#requisitos">Requisitos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilizacao">Utilização</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#classe-interactiveplot">Classe InteractivePlot</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#metodos">Métodos</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#funcao-runpath">Função run(path)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parametros">Parâmetros</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso">Exemplo de Uso</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Source Code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../src/Simulation/">Simulation.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../src/Vehicle/">Vehicle.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../src/creating_drones/">creating_drones.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../src/videomaker/">videomaker.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../src/utils/conversionMeters/">conversionMeters.py</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentação SuUAV</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Interface</li>
+      <li class="breadcrumb-item active">InteractivePlot.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="documentacao-do-modulo-interactiveplot">Documentação do Módulo InteractivePlot</h1>
+<p>O módulo <code>InteractivePlot</code> permite a criação de uma interface gráfica interativa para selecionar pontos em um mapa e gerar um arquivo de configuração baseado nos pontos selecionados. </p>
+<h2 id="requisitos">Requisitos</h2>
+<p>Para utilizar este módulo, é necessário instalar as seguintes bibliotecas:</p>
+<ul>
+<li><code>matplotlib</code></li>
+<li><code>xml.etree.ElementTree</code></li>
+<li><code>contextily</code></li>
+<li><code>shapely</code></li>
+<li><code>geopandas</code></li>
+<li><code>configparser</code></li>
+</ul>
+<h2 id="utilizacao">Utilização</h2>
+<h3 id="classe-interactiveplot">Classe <code>InteractivePlot</code></h3>
+<p>A classe <code>InteractivePlot</code> é a principal classe do módulo. Ela é responsável por criar a interface gráfica e gerar o arquivo de configuração.</p>
+<h4 id="metodos">Métodos</h4>
+<ul>
+<li><strong><code>__init__(self, xml_file)</code></strong>: Inicializa a classe com o caminho do arquivo XML contendo as coordenadas dos veículos.</li>
+<li><strong><code>extract_coordinates(self, xml_file)</code></strong>: Extrai as coordenadas dos veículos do arquivo XML.</li>
+<li><strong><code>on_mouse_move(self, event)</code></strong>: Atualiza as coordenadas exibidas na interface conforme o movimento do mouse.</li>
+<li><strong><code>on_click(self, event)</code></strong>: Adiciona um ponto ao mapa quando o usuário clica em uma área válida.</li>
+<li><strong><code>on_confirm(self, event)</code></strong>: Fecha a interface gráfica quando o botão de confirmação é clicado.</li>
+<li><strong><code>on_pattern_select(self, label)</code></strong>: Atualiza o padrão selecionado com base na escolha do usuário.</li>
+<li><strong><code>generate_config(self)</code></strong>: Gera um arquivo de configuração (<code>config.ini</code>) com base nos pontos selecionados.</li>
+<li><strong><code>show(self)</code></strong>: Exibe a interface gráfica interativa.</li>
+</ul>
+<h3 id="funcao-runpath">Função <code>run(path)</code></h3>
+<p>A função <code>run(path)</code> é a função principal para executar a interface gráfica e gerar o arquivo de configuração.</p>
+<h4 id="parametros">Parâmetros</h4>
+<ul>
+<li><strong><code>path</code></strong>: Caminho do arquivo XML.</li>
+</ul>
+<h3 id="exemplo-de-uso">Exemplo de Uso</h3>
+<p>```python
+from interactive_plot import run</p>
+<h1 id="caminho-do-arquivo-xml">Caminho do arquivo XML</h1>
+<p>xml_file = "caminho/para/seu/arquivo.xml"</p>
+<h1 id="executa-a-interface-grafica-e-gera-o-arquivo-de-configuracao">Executa a interface gráfica e gera o arquivo de configuração</h1>
+<p>run(xml_file)</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../funcs/parser/" class="btn btn-neutral float-left" title="parser.py"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../src/Simulation/" class="btn btn-neutral float-right" title="Simulation.py">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../funcs/parser/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../src/Simulation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

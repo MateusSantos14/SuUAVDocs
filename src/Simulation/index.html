@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Simulation.py - Documentação SuUAV</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simulation.py";
+        var mkdocs_page_input_path = "src\\Simulation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentação SuUAV
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration Files</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../example/">example.ini</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../funcs/parser/">parser.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../interface/InteractivePlot/">InteractivePlot.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Source Code</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Simulation.py</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#metodos">Métodos</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#__init__trace_path-str">__init__(trace_path: str)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_xmltrace_path-str">read_xml(trace_path: str)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getvehiclebyidid-str-vehicle">getVehicleById(id: str) -&gt; Vehicle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#export_to_videovideo_directory-str-limits_map-int-0-only_vants-int-0">export_to_video(video_directory: str, limits_map: int = 0, only_vants: int = 0)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_timestep_total-int">get_timestep_total() -&gt; int</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#export_timesteps_to_xmlnew_xml_path-str-geo-int-1">export_timesteps_to_xml(new_xml_path: str, geo: int = 1)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_angularstart_point-tuplefloat-float-max_length-float-start_angle-int-0-max_turns-int-3-angle_alpha-int-30-max_speed-float-10">create_drone_angular(start_point: Tuple[float, float], max_length: float, start_angle: int = 0, max_turns: int = 3, angle_alpha: int = 30, max_speed: float = 10)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_staticpoint-tuplefloat-float">create_drone_static(point: Tuple[float, float])</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_followingvehicle_id-str-offset_distance-float-max_speed-float-10">create_drone_following(vehicle_id: str, offset_distance: float, max_speed: float = 10)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_tractorstart_point-tuplefloat-float-width_between_tracks-float-max_length-float-max_turns-int-orientation-str-horizontal-max_speed-float-10">create_drone_tractor(start_point: Tuple[float, float], width_between_tracks: float, max_length: float, max_turns: int, orientation: str = "horizontal", max_speed: float = 10)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_circularcenter-tuplefloat-float-radius_meters-float-max_speed-float-10-start_angle-int-0">create_drone_circular(center: Tuple[float, float], radius_meters: float, max_speed: float = 10, start_angle: int = 0)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_squarecenter_point-tuplefloat-float-side_length-float-angle_degrees-int-90-max_speed-float-10">create_drone_square(center_point: Tuple[float, float], side_length: float, angle_degrees: int = 90, max_speed: float = 10)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create_drone_genericstart_point-tuplefloat-float-distance_lists-listfloat-angles_list-listfloat-max_speed-float-10">create_drone_generic(start_point: Tuple[float, float], distance_lists: List[float], angles_list: List[float], max_speed: float = 10)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#addvehiclevehicle-vehicle">addVehicle(vehicle: Vehicle)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#removevehiclevehicleid-str">removeVehicle(vehicleId: str)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changelegendoldlegend-str-newlegend-str">changeLegend(oldLegend: str, newLegend: str)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#print_all_vehicle_infovehicle_id-str">print_all_vehicle_info(vehicle_id: str)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_vehicle_dictvehicle_id-str-listoptionaldict">get_vehicle_dict(vehicle_id: str) -&gt; List[Optional[Dict]]</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vector_with_all_coordinates-listlisttuplefloat-float">vector_with_all_coordinates() -&gt; List[List[Tuple[float, float]]]</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Vehicle/">Vehicle.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../creating_drones/">creating_drones.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../videomaker/">videomaker.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../utils/conversionMeters/">conversionMeters.py</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentação SuUAV</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Source Code</li>
+      <li class="breadcrumb-item active">Simulation.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="documentacao-da-classe-simulation">Documentação da Classe <code>Simulation</code></h1>
+<p>A classe <code>Simulation</code> é responsável por representar uma simulação de veículos e drones. Ela permite a leitura de um arquivo XML de traços, criação de drones e exportação de resultados.</p>
+<h2 id="metodos">Métodos</h2>
+<h3 id="__init__trace_path-str"><code>__init__(trace_path: str)</code></h3>
+<p>Inicializa a simulação com base no caminho do arquivo XML de traços.</p>
+<p><strong>Parâmetros:</strong>
+- <code>trace_path</code> (str): Caminho do arquivo XML contendo os traços da simulação.</p>
+<h3 id="read_xmltrace_path-str"><code>read_xml(trace_path: str)</code></h3>
+<p>Lê o arquivo XML e popula a lista de veículos.</p>
+<p><strong>Parâmetros:</strong>
+- <code>trace_path</code> (str): Caminho do arquivo XML.</p>
+<h3 id="getvehiclebyidid-str-vehicle"><code>getVehicleById(id: str) -&gt; Vehicle</code></h3>
+<p>Retorna um veículo pelo ID.</p>
+<p><strong>Parâmetros:</strong>
+- <code>id</code> (str): ID do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>Vehicle</code>: Objeto do veículo.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se o ID não for encontrado.</p>
+<h3 id="export_to_videovideo_directory-str-limits_map-int-0-only_vants-int-0"><code>export_to_video(video_directory: str, limits_map: int = 0, only_vants: int = 0)</code></h3>
+<p>Exporta a simulação para um vídeo.</p>
+<p><strong>Parâmetros:</strong>
+- <code>video_directory</code> (str): Diretório de saída do vídeo.
+- <code>limits_map</code> (int): Limites do mapa. Se 0, calcula automaticamente.
+- <code>only_vants</code> (int): Define se apenas drones devem ser incluídos no vídeo.</p>
+<h3 id="get_timestep_total-int"><code>get_timestep_total() -&gt; int</code></h3>
+<p>Retorna o total de intervalos de tempo da simulação.</p>
+<p><strong>Retorna:</strong>
+- <code>int</code>: Total de intervalos de tempo.</p>
+<h3 id="export_timesteps_to_xmlnew_xml_path-str-geo-int-1"><code>export_timesteps_to_xml(new_xml_path: str, geo: int = 1)</code></h3>
+<p>Exporta os intervalos de tempo para um arquivo XML.</p>
+<p><strong>Parâmetros:</strong>
+- <code>new_xml_path</code> (str): Caminho do arquivo XML de saída.
+- <code>geo</code> (int): Define se as coordenadas devem ser mantidas geográficas. Se 0 converte para valores maiores que 0.</p>
+<h3 id="create_drone_angularstart_point-tuplefloat-float-max_length-float-start_angle-int-0-max_turns-int-3-angle_alpha-int-30-max_speed-float-10"><code>create_drone_angular(start_point: Tuple[float, float], max_length: float, start_angle: int = 0, max_turns: int = 3, angle_alpha: int = 30, max_speed: float = 10)</code></h3>
+<p>Cria um drone com um padrão de movimento angular.</p>
+<p><strong>Parâmetros:</strong>
+- <code>start_point</code> (Tuple[float, float]): Ponto inicial (latitude, longitude).
+- <code>max_length</code> (float): Comprimento máximo de cada segmento.
+- <code>start_angle</code> (int): Ângulo inicial de movimento.
+- <code>max_turns</code> (int): Número máximo de curvas.
+- <code>angle_alpha</code> (int): Ângulo de inclinação para as curvas.
+- <code>max_speed</code> (float): Velocidade máxima do drone.</p>
+<h3 id="create_drone_staticpoint-tuplefloat-float"><code>create_drone_static(point: Tuple[float, float])</code></h3>
+<p>Cria um drone estacionário em um ponto específico.</p>
+<p><strong>Parâmetros:</strong>
+- <code>point</code> (Tuple[float, float]): Coordenadas do ponto (latitude, longitude).</p>
+<h3 id="create_drone_followingvehicle_id-str-offset_distance-float-max_speed-float-10"><code>create_drone_following(vehicle_id: str, offset_distance: float, max_speed: float = 10)</code></h3>
+<p>Cria um drone que segue um veículo.</p>
+<p><strong>Parâmetros:</strong>
+- <code>vehicle_id</code> (str): ID do veículo a ser seguido.
+- <code>offset_distance</code> (float): Distância de offset entre o drone e o veículo.
+- <code>max_speed</code> (float): Velocidade máxima do drone.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se o ID do veículo não for encontrado.</p>
+<h3 id="create_drone_tractorstart_point-tuplefloat-float-width_between_tracks-float-max_length-float-max_turns-int-orientation-str-horizontal-max_speed-float-10"><code>create_drone_tractor(start_point: Tuple[float, float], width_between_tracks: float, max_length: float, max_turns: int, orientation: str = "horizontal", max_speed: float = 10)</code></h3>
+<p>Cria um drone com um padrão de movimento em trator.</p>
+<p><strong>Parâmetros:</strong>
+- <code>start_point</code> (Tuple[float, float]): Ponto inicial (latitude, longitude).
+- <code>width_between_tracks</code> (float): Distância entre as trilhas.
+- <code>max_length</code> (float): Comprimento máximo de cada trilha.
+- <code>max_turns</code> (int): Número máximo de curvas.
+- <code>orientation</code> (str): Orientação do movimento ("horizontal" ou "vertical").
+- <code>max_speed</code> (float): Velocidade máxima do drone.</p>
+<h3 id="create_drone_circularcenter-tuplefloat-float-radius_meters-float-max_speed-float-10-start_angle-int-0"><code>create_drone_circular(center: Tuple[float, float], radius_meters: float, max_speed: float = 10, start_angle: int = 0)</code></h3>
+<p>Cria um drone com um padrão de movimento circular.</p>
+<p><strong>Parâmetros:</strong>
+- <code>center</code> (Tuple[float, float]): Coordenadas do centro do círculo.
+- <code>radius_meters</code> (float): Raio do círculo em metros.
+- <code>max_speed</code> (float): Velocidade máxima do drone.
+- <code>start_angle</code> (int): Ângulo inicial de movimento.</p>
+<h3 id="create_drone_squarecenter_point-tuplefloat-float-side_length-float-angle_degrees-int-90-max_speed-float-10"><code>create_drone_square(center_point: Tuple[float, float], side_length: float, angle_degrees: int = 90, max_speed: float = 10)</code></h3>
+<p>Cria um drone com um padrão de movimento quadrado.</p>
+<p><strong>Parâmetros:</strong>
+- <code>center_point</code> (Tuple[float, float]): Coordenadas do centro do quadrado.
+- <code>side_length</code> (float): Comprimento do lado do quadrado.
+- <code>angle_degrees</code> (int): Ângulo inicial de movimento.
+- <code>max_speed</code> (float): Velocidade máxima do drone.</p>
+<h3 id="create_drone_genericstart_point-tuplefloat-float-distance_lists-listfloat-angles_list-listfloat-max_speed-float-10"><code>create_drone_generic(start_point: Tuple[float, float], distance_lists: List[float], angles_list: List[float], max_speed: float = 10)</code></h3>
+<p>Cria um drone com um padrão de movimento genérico.</p>
+<p><strong>Parâmetros:</strong>
+- <code>start_point</code> (Tuple[float, float]): Ponto inicial (latitude, longitude).
+- <code>distance_lists</code> (List[float]): Lista de distâncias a serem percorridas.
+- <code>angles_list</code> (List[float]): Lista de ângulos de movimento.
+- <code>max_speed</code> (float): Velocidade máxima do drone.</p>
+<h3 id="addvehiclevehicle-vehicle"><code>addVehicle(vehicle: Vehicle)</code></h3>
+<p>Adiciona um veículo à simulação.</p>
+<p><strong>Parâmetros:</strong>
+- <code>vehicle</code> (Vehicle): Objeto do veículo a ser adicionado.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se o ID do veículo já existir.</p>
+<h3 id="removevehiclevehicleid-str"><code>removeVehicle(vehicleId: str)</code></h3>
+<p>Remove um veículo da simulação.</p>
+<p><strong>Parâmetros:</strong>
+- <code>vehicleId</code> (str): ID do veículo a ser removido.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se o ID do veículo não existir.</p>
+<h3 id="changelegendoldlegend-str-newlegend-str"><code>changeLegend(oldLegend: str, newLegend: str)</code></h3>
+<p>Altera a legenda de um tipo de veículo.</p>
+<p><strong>Parâmetros:</strong>
+- <code>oldLegend</code> (str): Legenda antiga.
+- <code>newLegend</code> (str): Nova legenda.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se a legenda antiga não existir.</p>
+<h3 id="print_all_vehicle_infovehicle_id-str"><code>print_all_vehicle_info(vehicle_id: str)</code></h3>
+<p>Imprime todas as informações de um veículo.</p>
+<p><strong>Parâmetros:</strong>
+- <code>vehicle_id</code> (str): ID do veículo.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se o ID do veículo não for encontrado.</p>
+<h3 id="get_vehicle_dictvehicle_id-str-listoptionaldict"><code>get_vehicle_dict(vehicle_id: str) -&gt; List[Optional[Dict]]</code></h3>
+<p>Retorna um dicionário com todas as informações de um veículo.</p>
+<p><strong>Parâmetros:</strong>
+- <code>vehicle_id</code> (str): ID do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>List[Optional[Dict]]</code>: Lista de dicionários com informações de cada intervalo de tempo.</p>
+<p><strong>Lança:</strong>
+- <code>ValueError</code>: Se o ID do veículo não for encontrado.</p>
+<h3 id="vector_with_all_coordinates-listlisttuplefloat-float"><code>vector_with_all_coordinates() -&gt; List[List[Tuple[float, float]]]</code></h3>
+<p>Retorna um vetor com todas as coordenadas dos veículos.</p>
+<p><strong>Retorna:</strong>
+- <code>List[List[Tuple[float, float]]]</code>: Lista de listas de coordenadas (latitude, longitude).</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../interface/InteractivePlot/" class="btn btn-neutral float-left" title="InteractivePlot.py"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Vehicle/" class="btn btn-neutral float-right" title="Vehicle.py">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../interface/InteractivePlot/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Vehicle/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
