@@ -42,9 +42,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao-de-dependencias-no-linux">Instalação de dependencias no Linux</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#instalacao">Instalação</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#instalacao-no-linux">Instalação no Linux</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencias">Depêndencias</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#uso-basico">Uso Básico</a>
         <ul>
@@ -116,6 +118,10 @@
               
                 <h1 id="suuav-documentacao">SuUAV - Documentação</h1>
 <p>Bem-vindo à documentação do <strong>SuUAV</strong>, uma ferramenta para construção de cenários de mobilidade com UAVs (Veículos Aéreos Não Tripulados). Esta ferramenta facilita a integração de UAVs em simulações de tráfego geradas pelo SUMO, permitindo a geração de cenários complexos e a visualização dos resultados por meio de vídeos.</p>
+<h2 id="instalacao-de-dependencias-no-linux">Instalação de dependencias no Linux</h2>
+<p>Devido ao gerenciador de pacotes do linux, é possível instalar a ferramenta pelo terminal.</p>
+<pre><code>sudo apt install python pip ffmpeg
+</code></pre>
 <h2 id="instalacao">Instalação</h2>
 <p>Para utilizar o <strong>SuUAV</strong>, siga os passos abaixo:</p>
 <ol>
@@ -131,17 +137,14 @@ cd SuUAV</code></p>
 source .venv/bin/activate
 pip install -r requirements.txt</code></p>
 </li>
-<li>
-<p><strong>Instale o FFmpeg</strong>:
-    O FFmpeg é necessário para a geração de vídeos. Siga as instruções de instalação para o seu sistema operacional em <a href="https://ffmpeg.org/">FFmpeg Official Website</a>.</p>
-</li>
 </ol>
-<h2 id="instalacao-no-linux">Instalação no Linux</h2>
-<p>Devido ao gerenciador de pacotes do linux, é possível instalar a ferramenta pelo terminal.</p>
-<pre><code>sudo apt install python pip ffmpeg
-git clone https://github.com/MateusSantos14/SuUAV
-cd SuUAV
-</code></pre>
+<h2 id="dependencias">Depêndencias</h2>
+<ul>
+<li>Python</li>
+<li>pip</li>
+<li>ffmpeg</li>
+</ul>
+<p>Caso não consiga instalar as depêndencias pelo terminal,é possível instalar nos respectivos sites das organizações</p>
 <h2 id="uso-basico">Uso Básico</h2>
 <p>O <strong>SuUAV</strong> pode ser executado com dois comandos principais: <code>--setup</code> e <code>--run</code>.</p>
 <h3 id="configuracao-inicial-setup">Configuração Inicial (<code>--setup</code>)</h3>
@@ -211,5 +214,5 @@ cd SuUAV
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-02-17 00:43:36.078669+00:00
+Build Date UTC : 2025-02-17 00:50:19.206066+00:00
 -->
