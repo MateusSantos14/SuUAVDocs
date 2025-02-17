@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Vehicle.py - Documentação SuUAV</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Vehicle.py";
+        var mkdocs_page_input_path = "src\\Vehicle.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentação SuUAV
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration Files</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../example/">example.ini</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../funcs/parser/">parser.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../interface/InteractivePlot/">InteractivePlot.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Source Code</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Simulation/">Simulation.py</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Vehicle.py</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#classe-vehicle">Classe Vehicle</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#atributos">Atributos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metodos">Métodos</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#__init__self-id-str-type-str-none">__init__(self, id: str, type: str) -&gt; None</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add_timestepself-time-str-x-str-y-str-angle-str-speed-str-pos-str-lane-str-slope-str-none">add_timestep(self, time: str, x: str, y: str, angle: str, speed: str, pos: str, lane: str, slope: str) -&gt; None</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_timestepself-time-int-optionaltimestep">get_timestep(self, time: int) -&gt; Optional[Timestep]</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_timestep_dictself-time-int-optionaldict">get_timestep_dict(self, time: int) -&gt; Optional[dict]</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#print_timestepself-time-int-none">print_timestep(self, time: int) -&gt; None</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#is_presentself-time-int-bool">is_present(self, time: int) -&gt; bool</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#idself-str">id(self) -&gt; str</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#typeself-str">type(self) -&gt; str</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#classe-timestep">Classe Timestep</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#atributos_1">Atributos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metodos_1">Métodos</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#__init__self-time-int-x-float-y-float-angle-float-speed-float-pos-float-lane-str-slope-float-none">__init__(self, time: int, x: float, y: float, angle: float, speed: float, pos: float, lane: str, slope: float) -&gt; None</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#timeself-int">time(self) -&gt; int</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#xself-float">x(self) -&gt; float</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#yself-float">y(self) -&gt; float</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#angleself-float">angle(self) -&gt; float</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#speedself-float">speed(self) -&gt; float</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#posself-float">pos(self) -&gt; float</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#laneself-str">lane(self) -&gt; str</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#slopeself-float">slope(self) -&gt; float</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo-de-uso">Exemplo de Uso</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../creating_drones/">creating_drones.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../videomaker/">videomaker.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../utils/conversionMeters/">conversionMeters.py</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentação SuUAV</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Source Code</li>
+      <li class="breadcrumb-item active">Vehicle.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="classes-vehicle-e-timestep">Classes Vehicle e Timestep</h1>
+<p>Este módulo contém as classes <code>Vehicle</code> e <code>Timestep</code>, que são usadas para armazenar e gerenciar informações sobre veículos e seus estados em diferentes momentos.</p>
+<hr />
+<h2 id="classe-vehicle">Classe <code>Vehicle</code></h2>
+<p>A classe <code>Vehicle</code> é projetada para armazenar e gerenciar informações de trajetória de um veículo.</p>
+<h3 id="atributos">Atributos</h3>
+<ul>
+<li><code>_id</code> (<code>str</code>): Identificador único do veículo.</li>
+<li><code>_type</code> (<code>str</code>): Tipo do veículo.</li>
+<li><code>timesteps</code> (<code>Dict[int, Timestep]</code>): Dicionário que armazena objetos <code>Timestep</code>, indexados pelo tempo (como inteiros).</li>
+</ul>
+<h3 id="metodos">Métodos</h3>
+<h4 id="__init__self-id-str-type-str-none"><code>__init__(self, id: str, type: str) -&gt; None</code></h4>
+<p>Inicializa uma nova instância da classe <code>Vehicle</code> com o ID e tipo especificados.</p>
+<p><strong>Parâmetros:</strong>
+- <code>id</code> (<code>str</code>): Identificador único do veículo.
+- <code>type</code> (<code>str</code>): Tipo do veículo.</p>
+<hr />
+<h4 id="add_timestepself-time-str-x-str-y-str-angle-str-speed-str-pos-str-lane-str-slope-str-none"><code>add_timestep(self, time: str, x: str, y: str, angle: str, speed: str, pos: str, lane: str, slope: str) -&gt; None</code></h4>
+<p>Adiciona um novo <code>Timestep</code> ao histórico do veículo, convertendo os valores de entrada (strings) para os tipos apropriados.</p>
+<p><strong>Parâmetros:</strong>
+- <code>time</code> (<code>str</code>): Tempo do timestep.
+- <code>x</code> (<code>str</code>): Coordenada x da posição do veículo.
+- <code>y</code> (<code>str</code>): Coordenada y da posição do veículo.
+- <code>angle</code> (<code>str</code>): Ângulo de orientação do veículo.
+- <code>speed</code> (<code>str</code>): Velocidade do veículo.
+- <code>pos</code> (<code>str</code>): Indicador de posição do veículo.
+- <code>lane</code> (<code>str</code>): Faixa em que o veículo está.
+- <code>slope</code> (<code>str</code>): Inclinação da via ou do veículo.</p>
+<hr />
+<h4 id="get_timestepself-time-int-optionaltimestep"><code>get_timestep(self, time: int) -&gt; Optional[Timestep]</code></h4>
+<p>Retorna o objeto <code>Timestep</code> para um determinado tempo, se existir; caso contrário, retorna <code>None</code>.</p>
+<p><strong>Parâmetros:</strong>
+- <code>time</code> (<code>int</code>): Tempo do timestep.</p>
+<p><strong>Retorna:</strong>
+- <code>Optional[Timestep]</code>: Objeto <code>Timestep</code> ou <code>None</code>.</p>
+<hr />
+<h4 id="get_timestep_dictself-time-int-optionaldict"><code>get_timestep_dict(self, time: int) -&gt; Optional[dict]</code></h4>
+<p>Retorna uma representação em dicionário do <code>Timestep</code> para um determinado tempo, se existir; caso contrário, retorna <code>None</code>.</p>
+<p><strong>Parâmetros:</strong>
+- <code>time</code> (<code>int</code>): Tempo do timestep.</p>
+<p><strong>Retorna:</strong>
+- <code>Optional[dict]</code>: Dicionário com os dados do timestep ou <code>None</code>.</p>
+<hr />
+<h4 id="print_timestepself-time-int-none"><code>print_timestep(self, time: int) -&gt; None</code></h4>
+<p>Imprime a representação em dicionário do <code>Timestep</code> para um determinado tempo, se existir.</p>
+<p><strong>Parâmetros:</strong>
+- <code>time</code> (<code>int</code>): Tempo do timestep.</p>
+<hr />
+<h4 id="is_presentself-time-int-bool"><code>is_present(self, time: int) -&gt; bool</code></h4>
+<p>Verifica se existe um <code>Timestep</code> para um determinado tempo.</p>
+<p><strong>Parâmetros:</strong>
+- <code>time</code> (<code>int</code>): Tempo do timestep.</p>
+<p><strong>Retorna:</strong>
+- <code>bool</code>: <code>True</code> se o timestep existir; <code>False</code> caso contrário.</p>
+<hr />
+<h4 id="idself-str"><code>id(self) -&gt; str</code></h4>
+<p>Retorna o ID do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>str</code>: ID do veículo.</p>
+<hr />
+<h4 id="typeself-str"><code>type(self) -&gt; str</code></h4>
+<p>Retorna o tipo do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>str</code>: Tipo do veículo.</p>
+<hr />
+<h2 id="classe-timestep">Classe <code>Timestep</code></h2>
+<p>A classe <code>Timestep</code> encapsula o estado de um veículo em um momento específico, detalhando sua posição, orientação e atributos de movimento.</p>
+<h3 id="atributos_1">Atributos</h3>
+<ul>
+<li><code>_time</code> (<code>int</code>): Momento do timestep.</li>
+<li><code>_x</code> (<code>float</code>): Coordenada x da posição do veículo.</li>
+<li><code>_y</code> (<code>float</code>): Coordenada y da posição do veículo.</li>
+<li><code>_angle</code> (<code>float</code>): Ângulo de orientação do veículo.</li>
+<li><code>_speed</code> (<code>float</code>): Velocidade do veículo.</li>
+<li><code>_pos</code> (<code>float</code>): Indicador de posição do veículo.</li>
+<li><code>_lane</code> (<code>str</code>): Faixa em que o veículo está.</li>
+<li><code>_slope</code> (<code>float</code>): Inclinação da via ou do veículo.</li>
+</ul>
+<h3 id="metodos_1">Métodos</h3>
+<h4 id="__init__self-time-int-x-float-y-float-angle-float-speed-float-pos-float-lane-str-slope-float-none"><code>__init__(self, time: int, x: float, y: float, angle: float, speed: float, pos: float, lane: str, slope: float) -&gt; None</code></h4>
+<p>Inicializa um <code>Timestep</code> com detalhes de posição, orientação e movimento.</p>
+<p><strong>Parâmetros:</strong>
+- <code>time</code> (<code>int</code>): Momento do timestep.
+- <code>x</code> (<code>float</code>): Coordenada x da posição do veículo.
+- <code>y</code> (<code>float</code>): Coordenada y da posição do veículo.
+- <code>angle</code> (<code>float</code>): Ângulo de orientação do veículo.
+- <code>speed</code> (<code>float</code>): Velocidade do veículo.
+- <code>pos</code> (<code>float</code>): Indicador de posição do veículo.
+- <code>lane</code> (<code>str</code>): Faixa em que o veículo está.
+- <code>slope</code> (<code>float</code>): Inclinação da via ou do veículo.</p>
+<hr />
+<h4 id="timeself-int"><code>time(self) -&gt; int</code></h4>
+<p>Retorna o momento do timestep.</p>
+<p><strong>Retorna:</strong>
+- <code>int</code>: Momento do timestep.</p>
+<hr />
+<h4 id="xself-float"><code>x(self) -&gt; float</code></h4>
+<p>Retorna a coordenada x da posição do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>float</code>: Coordenada x.</p>
+<hr />
+<h4 id="yself-float"><code>y(self) -&gt; float</code></h4>
+<p>Retorna a coordenada y da posição do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>float</code>: Coordenada y.</p>
+<hr />
+<h4 id="angleself-float"><code>angle(self) -&gt; float</code></h4>
+<p>Retorna o ângulo de orientação do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>float</code>: Ângulo de orientação.</p>
+<hr />
+<h4 id="speedself-float"><code>speed(self) -&gt; float</code></h4>
+<p>Retorna a velocidade do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>float</code>: Velocidade.</p>
+<hr />
+<h4 id="posself-float"><code>pos(self) -&gt; float</code></h4>
+<p>Retorna o indicador de posição do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>float</code>: Indicador de posição.</p>
+<hr />
+<h4 id="laneself-str"><code>lane(self) -&gt; str</code></h4>
+<p>Retorna a faixa em que o veículo está.</p>
+<p><strong>Retorna:</strong>
+- <code>str</code>: Faixa do veículo.</p>
+<hr />
+<h4 id="slopeself-float"><code>slope(self) -&gt; float</code></h4>
+<p>Retorna a inclinação da via ou do veículo.</p>
+<p><strong>Retorna:</strong>
+- <code>float</code>: Inclinação.</p>
+<hr />
+<h2 id="exemplo-de-uso">Exemplo de Uso</h2>
+<p>Aqui está um exemplo de como usar as classes <code>Vehicle</code> e <code>Timestep</code>:</p>
+<pre><code class="language-python"># Criando um veículo
+veiculo = Vehicle(id=&quot;car1&quot;, type=&quot;car&quot;)
+
+# Adicionando um timestep
+veiculo.add_timestep(time=&quot;1&quot;, x=&quot;10.5&quot;, y=&quot;20.3&quot;, angle=&quot;45.0&quot;, speed=&quot;30.0&quot;, pos=&quot;0.0&quot;, lane=&quot;left&quot;, slope=&quot;0.0&quot;)
+
+# Obtendo um timestep
+timestep = veiculo.get_timestep(time=1)
+if timestep:
+    print(f&quot;Timestep encontrado: x={timestep.x()}, y={timestep.y()}&quot;)
+
+# Verificando se um timestep existe
+if veiculo.is_present(time=1):
+    print(&quot;Timestep existe!&quot;)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Simulation/" class="btn btn-neutral float-left" title="Simulation.py"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../creating_drones/" class="btn btn-neutral float-right" title="creating_drones.py">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Simulation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../creating_drones/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>videomaker.py - Documentação SuUAV</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "videomaker.py";
+        var mkdocs_page_input_path = "src\\videomaker.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentação SuUAV
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration Files</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../example/">example.ini</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../funcs/parser/">parser.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../interface/InteractivePlot/">InteractivePlot.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Source Code</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Simulation/">Simulation.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Vehicle/">Vehicle.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../creating_drones/">creating_drones.py</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">videomaker.py</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#funcao-_create_dataframe_optimized">Função _create_dataframe_optimized</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parametros">Parâmetros</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retorno">Retorno</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funcao-generate_video_with_vector_coordinates_image">Função generate_video_with_vector_coordinates_image</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parametros_1">Parâmetros</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#descricao">Descrição</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#funcao-interna-update">Função Interna update</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencias">Dependências</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Utils</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../utils/conversionMeters/">conversionMeters.py</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentação SuUAV</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Source Code</li>
+      <li class="breadcrumb-item active">videomaker.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="funcoes-de-geracao-de-video-com-coordenadas-vetoriais">Funções de Geração de Vídeo com Coordenadas Vetoriais</h1>
+<p>Este módulo contém funções para gerar vídeos animados com base nas coordenadas de veículos e criar GeoDataFrames otimizados para visualização em mapas.</p>
+<hr />
+<h2 id="funcao-_create_dataframe_optimized">Função <code>_create_dataframe_optimized</code></h2>
+<p>A função <code>_create_dataframe_optimized</code> cria um <code>GeoDataFrame</code> otimizado a partir de coordenadas vetoriais ou limites de mapa.</p>
+<h3 id="parametros">Parâmetros</h3>
+<ul>
+<li><code>vector_coordinates</code> (<code>List[List[List[Tuple[float, float]]]</code>): Lista de coordenadas dos veículos.</li>
+<li><code>limits_map</code> (<code>Union[List[Tuple[float, float]], int]</code>): Limites do mapa. Se for <code>0</code>, os limites serão calculados automaticamente.</li>
+</ul>
+<h3 id="retorno">Retorno</h3>
+<ul>
+<li><code>Tuple[gpd.GeoDataFrame, float]</code>: Retorna um <code>GeoDataFrame</code> contendo o polígono do cenário e a proporção entre largura e altura.</li>
+</ul>
+<hr />
+<h2 id="funcao-generate_video_with_vector_coordinates_image">Função <code>generate_video_with_vector_coordinates_image</code></h2>
+<p>A função <code>generate_video_with_vector_coordinates_image</code> gera um vídeo animado com base nas coordenadas vetoriais dos veículos.</p>
+<h3 id="parametros_1">Parâmetros</h3>
+<ul>
+<li><code>vector_coordinates</code> (<code>List[List[List[Tuple[float, float]]]</code>): Lista de coordenadas dos veículos.</li>
+<li><code>directory_video</code> (<code>str</code>): Caminho onde o vídeo será salvo.</li>
+<li><code>names</code> (<code>List[str]</code>): Nomes dos veículos para a legenda. (Padrão: lista vazia)</li>
+<li><code>limits_map</code> (<code>Union[List[Tuple[float, float]], int]</code>): Limites do mapa. Se for <code>0</code>, os limites serão calculados automaticamente. (Padrão: <code>0</code>)</li>
+<li><code>only_vants</code> (<code>int</code>): Se for <code>1</code>, considera apenas os UAVs (veículos aéreos não tripulados). (Padrão: <code>0</code>)</li>
+</ul>
+<h3 id="descricao">Descrição</h3>
+<ol>
+<li>Se <code>only_vants</code> for <code>1</code>, apenas os UAVs serão considerados.</li>
+<li>Cria o cenário com um <code>GeoDataFrame</code> e calcula sua proporção.</li>
+<li>Define uma lista de cores para os veículos e atribui uma cor específica para cada tipo.</li>
+<li>Plota o cenário e adiciona uma legenda para os veículos.</li>
+<li>Adiciona um mapa de fundo usando o provedor OpenStreetMap.</li>
+<li>Pré-computa as coordenadas para todos os frames e configura a animação.</li>
+<li>Salva o vídeo usando o <code>ffmpeg</code>.</li>
+</ol>
+<h3 id="funcao-interna-update">Função Interna <code>update</code></h3>
+<p>Atualiza a posição dos pontos no gráfico para cada frame da animação.</p>
+<ul>
+<li><code>frame</code> (<code>int</code>): Número do frame atual.</li>
+</ul>
+<p><strong>Retorna:</strong> <code>Tuple[PathCollection]</code> com os pontos atualizados.</p>
+<hr />
+<h2 id="dependencias">Dependências</h2>
+<p>Este módulo utiliza as seguintes bibliotecas:</p>
+<ul>
+<li><code>numpy</code>: Processamento de coordenadas vetoriais.</li>
+<li><code>matplotlib.pyplot</code>: Geração de gráficos e vídeos.</li>
+<li><code>matplotlib.animation.FuncAnimation</code>: Animação dos gráficos.</li>
+<li><code>contextily</code>: Adição de mapas de fundo.</li>
+<li><code>shapely.geometry.Polygon</code>: Criação de polígonos de limite para o mapa.</li>
+<li><code>geopandas</code>: Criação de <code>GeoDataFrames</code> para visualização geográfica.</li>
+<li><code>typing</code>: Definição de tipos para os parâmetros e retornos.</li>
+<li><code>matplotlib.collections.PathCollection</code>: Manipulação de coleções de caminhos no gráfico.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../creating_drones/" class="btn btn-neutral float-left" title="creating_drones.py"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../utils/conversionMeters/" class="btn btn-neutral float-right" title="conversionMeters.py">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../creating_drones/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../utils/conversionMeters/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

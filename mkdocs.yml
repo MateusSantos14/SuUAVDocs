@@ -1,0 +1,17 @@
+site_name: Documentação SuUAV
+nav:
+  - Home: index.md
+  - Configuration Files:
+    - example.ini: example.md
+  - Functions:
+    - parser.py: funcs/parser.md
+  - Interface:
+    - InteractivePlot.py: interface/InteractivePlot.md
+  - Source Code:
+    - Simulation.py: src/Simulation.md
+    - Vehicle.py: src/Vehicle.md
+    - creating_drones.py: src/creating_drones.md
+    - videomaker.py: src/videomaker.md
+    - Utils:
+      - conversionMeters.py: src/utils/conversionMeters.md
+theme: readthedocs

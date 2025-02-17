@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>conversionMeters.py - Documentação SuUAV</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "conversionMeters.py";
+        var mkdocs_page_input_path = "src\\utils\\conversionMeters.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Documentação SuUAV
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Configuration Files</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../example/">example.ini</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Functions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../funcs/parser/">parser.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../interface/InteractivePlot/">InteractivePlot.py</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Source Code</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../Simulation/">Simulation.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Vehicle/">Vehicle.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../creating_drones/">creating_drones.py</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../videomaker/">videomaker.py</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Utils</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">conversionMeters.py</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#funcoes">Funções</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#longitude_to_utm_zonelongitude-float-int">longitude_to_utm_zone(longitude: float) -&gt; int</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#latlon_to_utmlat-float-lon-float-tuplefloat-float">latlon_to_utm(lat: float, lon: float) -&gt; Tuple[float, float]</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#latlon_to_xylat-float-lon-float-min_lat-float-min_lon-float-tuplefloat-float">latlon_to_xy(lat: float, lon: float, min_lat: float, min_lon: float) -&gt; Tuple[float, float]</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#convert_coordinatesinput_xml_path-str-output_xml_path-str-none">convert_coordinates(input_xml_path: str, output_xml_path: str) -&gt; None</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exemplo-de-uso">Exemplo de Uso</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Documentação SuUAV</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Source Code</li>
+          <li class="breadcrumb-item">Utils</li>
+      <li class="breadcrumb-item active">conversionMeters.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="conversao-de-coordenadas">Conversão de Coordenadas</h1>
+<p>Este módulo fornece funções para converter coordenadas de latitude e longitude em coordenadas UTM (Universal Transversa de Mercator) e coordenadas Cartesianas (x, y). Além disso, ele inclui uma função para processar um arquivo XML, convertendo as coordenadas de latitude e longitude contidas nele para coordenadas Cartesianas.</p>
+<h2 id="funcoes">Funções</h2>
+<h3 id="longitude_to_utm_zonelongitude-float-int"><code>longitude_to_utm_zone(longitude: float) -&gt; int</code></h3>
+<p>Calcula o número da zona UTM a partir da longitude.</p>
+<p><strong>Parâmetros:</strong>
+- <code>longitude</code> (float): Longitude em graus decimais.</p>
+<p><strong>Retorna:</strong>
+- <code>int</code>: Número da zona UTM.</p>
+<h3 id="latlon_to_utmlat-float-lon-float-tuplefloat-float"><code>latlon_to_utm(lat: float, lon: float) -&gt; Tuple[float, float]</code></h3>
+<p>Converte latitude e longitude para coordenadas UTM.</p>
+<p><strong>Parâmetros:</strong>
+- <code>lat</code> (float): Latitude em graus decimais.
+- <code>lon</code> (float): Longitude em graus decimais.</p>
+<p><strong>Retorna:</strong>
+- <code>Tuple[float, float]</code>: Coordenadas UTM (Easting, Northing).</p>
+<h3 id="latlon_to_xylat-float-lon-float-min_lat-float-min_lon-float-tuplefloat-float"><code>latlon_to_xy(lat: float, lon: float, min_lat: float, min_lon: float) -&gt; Tuple[float, float]</code></h3>
+<p>Converte latitude e longitude para coordenadas Cartesianas (x, y).</p>
+<p><strong>Parâmetros:</strong>
+- <code>lat</code> (float): Latitude em graus decimais.
+- <code>lon</code> (float): Longitude em graus decimais.
+- <code>min_lat</code> (float): Latitude mínima de referência.
+- <code>min_lon</code> (float): Longitude mínima de referência.</p>
+<p><strong>Retorna:</strong>
+- <code>Tuple[float, float]</code>: Coordenadas Cartesianas em metros.</p>
+<h3 id="convert_coordinatesinput_xml_path-str-output_xml_path-str-none"><code>convert_coordinates(input_xml_path: str, output_xml_path: str) -&gt; None</code></h3>
+<p>Converte coordenadas de latitude e longitude em um arquivo XML para coordenadas Cartesianas.</p>
+<p><strong>Parâmetros:</strong>
+- <code>input_xml_path</code> (str): Caminho do arquivo XML de entrada.
+- <code>output_xml_path</code> (str): Caminho do arquivo XML de saída.</p>
+<p><strong>Retorna:</strong>
+- <code>None</code></p>
+<h2 id="exemplo-de-uso">Exemplo de Uso</h2>
+<p>Aqui está um exemplo de como usar as funções deste módulo:</p>
+<pre><code class="language-python">from coordenadas import latlon_to_utm, latlon_to_xy, convert_coordinates
+
+# Convertendo latitude e longitude para UTM
+lat, lon = -23.5505, -46.6333
+easting, northing = latlon_to_utm(lat, lon)
+print(f&quot;UTM: {easting}, {northing}&quot;)
+
+# Convertendo latitude e longitude para coordenadas Cartesianas
+min_lat, min_lon = -23.5600, -46.6400
+x, y = latlon_to_xy(lat, lon, min_lat, min_lon)
+print(f&quot;Cartesianas: {x}, {y}&quot;)
+
+# Convertendo coordenadas em um arquivo XML
+convert_coordinates('input.xml', 'output.xml')
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../videomaker/" class="btn btn-neutral float-left" title="videomaker.py"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../videomaker/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
