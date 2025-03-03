@@ -48,14 +48,14 @@ O **SuUAV** pode ser executado com dois comandos principais: `--setup` e `--run`
 O comando `--setup` abre uma interface interativa para configurar os pontos iniciais dos UAVs no mapa. Para usar:
 
 ```
-python main.py --setup -i caminho/do/arquivo_trace.xml
+python SuUAV.py --setup -i caminho/do/arquivo_trace.xml
 -i ou --input: Caminho para o arquivo de trace .xml.
 ```
 ### Execução da Simulação (--run)
 O comando --run executa a simulação com base no arquivo de configuração fornecido. Para usar:
 
 ```
-python main.py --run -i caminho/do/arquivo_de_configuracao.ini
+python SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
 -i ou --input: Caminho para o arquivo de configuração .ini.
 ```
 
@@ -64,7 +64,7 @@ python main.py --run -i caminho/do/arquivo_de_configuracao.ini
 Para testar a aplicação funcionando, rode o comando abaixo:
 
 ```
-python main.py --setup -i example.xml
+python SuUAV.py --setup -i example.xml
 ```
 
 Escolha os UAVs que deseja adicionar, e clique em confirmar
@@ -72,7 +72,7 @@ Escolha os UAVs que deseja adicionar, e clique em confirmar
 Em seguida, rode o comando e aguarde o vídeo ser gerado:
 
 ```
-python main.py --setup -i config.ini
+python SuUAV.py --setup -i example.ini
 ```
 
 Após isso, será gerado o vídeo example_video.mp4 e o trace exampleUAV.xml
