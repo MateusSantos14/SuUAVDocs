@@ -120,7 +120,7 @@
 <p>Bem-vindo à documentação do <strong>SuUAV</strong>, uma ferramenta para construção de cenários de mobilidade com UAVs (Veículos Aéreos Não Tripulados). Esta ferramenta facilita a integração de UAVs em simulações de tráfego geradas pelo SUMO, permitindo a geração de cenários complexos e a visualização dos resultados por meio de vídeos.</p>
 <h2 id="instalacao-de-dependencias-no-linux">Instalação de dependencias no Linux</h2>
 <p>Devido ao gerenciador de pacotes do linux, é possível instalar a ferramenta pelo terminal.</p>
-<pre><code>sudo apt install python pip ffmpeg
+<pre><code>sudo apt install python3 pip ffmpeg
 </code></pre>
 <h2 id="instalacao">Instalação</h2>
 <p>Para utilizar o <strong>SuUAV</strong>, siga os passos abaixo:</p>
@@ -133,7 +133,7 @@ cd SuUAV</code></p>
 <li>
 <p><strong>Crie um ambiente virtual e instale as dependências</strong>:</p>
 <p>Certifique-se de ter o <strong>Python 3.11.4</strong> e o pip estão instalados. Em seguida, instale as dependências necessárias:
-<code>python -m venv .venv
+<code>python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt</code></p>
 </li>
@@ -149,21 +149,21 @@ pip install -r requirements.txt</code></p>
 <p>O <strong>SuUAV</strong> pode ser executado com dois comandos principais: <code>--setup</code> e <code>--run</code>.</p>
 <h3 id="configuracao-inicial-setup">Configuração Inicial (<code>--setup</code>)</h3>
 <p>O comando <code>--setup</code> abre uma interface interativa para configurar os pontos iniciais dos UAVs no mapa. Para usar:</p>
-<pre><code>python SuUAV.py --setup -i caminho/do/arquivo_trace.xml
+<pre><code>python3 SuUAV.py --setup -i caminho/do/arquivo_trace.xml
 -i ou --input: Caminho para o arquivo de trace .xml.
 </code></pre>
 <h3 id="execucao-da-simulacao-run">Execução da Simulação (--run)</h3>
 <p>O comando --run executa a simulação com base no arquivo de configuração fornecido. Para usar:</p>
-<pre><code>python SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
+<pre><code>python3 SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
 -i ou --input: Caminho para o arquivo de configuração .ini.
 </code></pre>
 <h3 id="exemplo-de-execucao">Exemplo de execução</h3>
 <p>Para testar a aplicação funcionando, rode o comando abaixo:</p>
-<pre><code>python SuUAV.py --setup -i example.xml
+<pre><code>python3 SuUAV.py --setup -i example.xml
 </code></pre>
 <p>Escolha os UAVs que deseja adicionar, e clique em confirmar</p>
 <p>Em seguida, rode o comando e aguarde o vídeo ser gerado:</p>
-<pre><code>python SuUAV.py --setup -i example.ini
+<pre><code>python3 SuUAV.py --setup -i example.ini
 </code></pre>
 <p>Após isso, será gerado o vídeo example_video.mp4 e o trace exampleUAV.xml</p>
               
@@ -214,5 +214,5 @@ pip install -r requirements.txt</code></p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-03-03 00:52:26.044270+00:00
+Build Date UTC : 2025-03-03 14:54:30.212510+00:00
 -->
