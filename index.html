@@ -149,21 +149,21 @@ pip install -r requirements.txt</code></p>
 <p>O <strong>SuUAV</strong> pode ser executado com dois comandos principais: <code>--setup</code> e <code>--run</code>.</p>
 <h3 id="configuracao-inicial-setup">Configuração Inicial (<code>--setup</code>)</h3>
 <p>O comando <code>--setup</code> abre uma interface interativa para configurar os pontos iniciais dos UAVs no mapa. Para usar:</p>
-<pre><code>python main.py --setup -i caminho/do/arquivo_trace.xml
+<pre><code>python SuUAV.py --setup -i caminho/do/arquivo_trace.xml
 -i ou --input: Caminho para o arquivo de trace .xml.
 </code></pre>
 <h3 id="execucao-da-simulacao-run">Execução da Simulação (--run)</h3>
 <p>O comando --run executa a simulação com base no arquivo de configuração fornecido. Para usar:</p>
-<pre><code>python main.py --run -i caminho/do/arquivo_de_configuracao.ini
+<pre><code>python SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
 -i ou --input: Caminho para o arquivo de configuração .ini.
 </code></pre>
 <h3 id="exemplo-de-execucao">Exemplo de execução</h3>
 <p>Para testar a aplicação funcionando, rode o comando abaixo:</p>
-<pre><code>python main.py --setup -i example.xml
+<pre><code>python SuUAV.py --setup -i example.xml
 </code></pre>
 <p>Escolha os UAVs que deseja adicionar, e clique em confirmar</p>
 <p>Em seguida, rode o comando e aguarde o vídeo ser gerado:</p>
-<pre><code>python main.py --setup -i example.ini
+<pre><code>python SuUAV.py --setup -i example.ini
 </code></pre>
 <p>Após isso, será gerado o vídeo example_video.mp4 e o trace exampleUAV.xml</p>
               
@@ -214,5 +214,5 @@ pip install -r requirements.txt</code></p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-02-17 01:22:49.380081+00:00
+Build Date UTC : 2025-03-03 00:51:57.964038+00:00
 -->
