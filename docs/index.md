@@ -6,7 +6,7 @@ Bem-vindo à documentação do **SuUAV**, uma ferramenta para construção de ce
 ## Instalação de dependencias no Linux
 Devido ao gerenciador de pacotes do linux, é possível instalar a ferramenta pelo terminal.
 ```
-sudo apt install python pip ffmpeg
+sudo apt install python3 pip ffmpeg
 ```
 
 ## Instalação
@@ -24,7 +24,7 @@ Para utilizar o **SuUAV**, siga os passos abaixo:
 
     Certifique-se de ter o **Python 3.11.4** e o pip estão instalados. Em seguida, instale as dependências necessárias:
     ```
-    python -m venv .venv
+    python3 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
     ```
@@ -48,14 +48,14 @@ O **SuUAV** pode ser executado com dois comandos principais: `--setup` e `--run`
 O comando `--setup` abre uma interface interativa para configurar os pontos iniciais dos UAVs no mapa. Para usar:
 
 ```
-python SuUAV.py --setup -i caminho/do/arquivo_trace.xml
+python3 SuUAV.py --setup -i caminho/do/arquivo_trace.xml
 -i ou --input: Caminho para o arquivo de trace .xml.
 ```
 ### Execução da Simulação (--run)
 O comando --run executa a simulação com base no arquivo de configuração fornecido. Para usar:
 
 ```
-python SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
+python3 SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
 -i ou --input: Caminho para o arquivo de configuração .ini.
 ```
 
@@ -64,7 +64,7 @@ python SuUAV.py --run -i caminho/do/arquivo_de_configuracao.ini
 Para testar a aplicação funcionando, rode o comando abaixo:
 
 ```
-python SuUAV.py --setup -i example.xml
+python3 SuUAV.py --setup -i example.xml
 ```
 
 Escolha os UAVs que deseja adicionar, e clique em confirmar
@@ -72,7 +72,7 @@ Escolha os UAVs que deseja adicionar, e clique em confirmar
 Em seguida, rode o comando e aguarde o vídeo ser gerado:
 
 ```
-python SuUAV.py --setup -i example.ini
+python3 SuUAV.py --setup -i example.ini
 ```
 
 Após isso, será gerado o vídeo example_video.mp4 e o trace exampleUAV.xml

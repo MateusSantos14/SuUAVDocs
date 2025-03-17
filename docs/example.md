@@ -6,26 +6,26 @@
 
 - **center** (`Tuple[float, float]`): Coordenadas do centro do drone circular.
 - **radius_meters** (`int`): Raio do drone circular em metros.
-- **max_speed** (`int`, opcional): Velocidade máxima do drone. Valor padrão: `10`.
-- **start_angle** (`int`, opcional): Ângulo inicial do drone. Valor padrão: `0`.
+- **max_speed** (`int`, opcional): Velocidade máxima do drone em **m/s**. Valor padrão: `10`.
+- **start_angle** (`int`, opcional): Ângulo inicial do drone em **graus**. Valor padrão: `0`.
 
 ### Seção `DroneAngular`
 
 - **start_point** (`Tuple[float, float]`): Ponto inicial do drone angular.
-- **max_length** (`int`): Comprimento máximo do drone angular.
-- **start_angle** (`int`, opcional): Ângulo inicial do drone. Valor padrão: `0`.
+- **max_length** (`int`): Comprimento máximo do drone angular em metros.
+- **start_angle** (`int`, opcional): Ângulo inicial do drone em **graus**. Valor padrão: `0`.
 - **max_turns** (`int`, opcional): Número máximo de voltas. Valor padrão: `3`.
-- **angle_alpha** (`int`, opcional): Ângulo alfa. Valor padrão: `30`.
-- **max_speed** (`int`, opcional): Velocidade máxima do drone. Valor padrão: `10`.
+- **angle_alpha** (`int`, opcional): Ângulo alfa em **graus**. Valor padrão: `30`.
+- **max_speed** (`int`, opcional): Velocidade máxima do drone em **m/s**. Valor padrão: `10`.
 
 ### Seção `DroneTractor`
 
 - **start_point** (`Tuple[float, float]`): Ponto inicial do drone trator.
-- **width_between_tracks** (`int`): Largura entre as trilhas.
-- **max_length** (`int`): Comprimento máximo.
+- **width_between_tracks** (`int`): Largura entre as trilhas em metros.
+- **max_length** (`int`): Comprimento máximo em metros.
 - **max_turns** (`int`): Número máximo de voltas.
 - **orientation** (`str`, opcional): Orientação do drone. Valor padrão: `"horizontal"`.
-- **max_speed** (`int`, opcional): Velocidade máxima do drone. Valor padrão: `10`.
+- **max_speed** (`int`, opcional): Velocidade máxima do drone em **m/s**. Valor padrão: `10`.
 
 ### Seção `DroneStatic`
 
@@ -34,15 +34,15 @@
 ### Seção `DroneSquare`
 
 - **center_point** (`Tuple[float, float]`): Ponto central do drone quadrado.
-- **side_length** (`int`): Comprimento do lado do quadrado.
-- **angle_degrees** (`int`, opcional): Ângulo do quadrado. Valor padrão: `90`.
-- **max_speed** (`int`, opcional): Velocidade máxima do drone. Valor padrão: `10`.
+- **side_length** (`int`): Comprimento do lado do quadrado em metros.
+- **angle_degrees** (`int`, opcional): Ângulo do quadrado em **graus**. Valor padrão: `90`.
+- **max_speed** (`int`, opcional): Velocidade máxima do drone em **m/s**. Valor padrão: `10`.
 
 ### Seção `DroneFollowing`
 
 - **vehicle_id** (`str`, opcional): ID do veículo a ser seguido. Valor padrão: `"0"`.
-- **offset_distance** (`int`, opcional): Distância de offset. Valor padrão: `10`.
-- **max_speed** (`int`, opcional): Velocidade máxima do drone. Valor padrão: `10`.
+- **offset_distance** (`int`, opcional): Distância de offset em metros. Valor padrão: `10`.
+- **max_speed** (`int`, opcional): Velocidade máxima do drone em **m/s**. Valor padrão: `10`.
 
 ### Seção `ExportVideo`
 
