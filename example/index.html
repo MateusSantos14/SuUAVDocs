@@ -131,26 +131,26 @@
 <ul>
 <li><strong>center</strong> (<code>Tuple[float, float]</code>): Coordenadas do centro do drone circular.</li>
 <li><strong>radius_meters</strong> (<code>int</code>): Raio do drone circular em metros.</li>
-<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
-<li><strong>start_angle</strong> (<code>int</code>, opcional): Ângulo inicial do drone. Valor padrão: <code>0</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone em <strong>m/s</strong>. Valor padrão: <code>10</code>.</li>
+<li><strong>start_angle</strong> (<code>int</code>, opcional): Ângulo inicial do drone em <strong>graus</strong>. Valor padrão: <code>0</code>.</li>
 </ul>
 <h3 id="secao-droneangular">Seção <code>DroneAngular</code></h3>
 <ul>
 <li><strong>start_point</strong> (<code>Tuple[float, float]</code>): Ponto inicial do drone angular.</li>
-<li><strong>max_length</strong> (<code>int</code>): Comprimento máximo do drone angular.</li>
-<li><strong>start_angle</strong> (<code>int</code>, opcional): Ângulo inicial do drone. Valor padrão: <code>0</code>.</li>
+<li><strong>max_length</strong> (<code>int</code>): Comprimento máximo do drone angular em metros.</li>
+<li><strong>start_angle</strong> (<code>int</code>, opcional): Ângulo inicial do drone em <strong>graus</strong>. Valor padrão: <code>0</code>.</li>
 <li><strong>max_turns</strong> (<code>int</code>, opcional): Número máximo de voltas. Valor padrão: <code>3</code>.</li>
-<li><strong>angle_alpha</strong> (<code>int</code>, opcional): Ângulo alfa. Valor padrão: <code>30</code>.</li>
-<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+<li><strong>angle_alpha</strong> (<code>int</code>, opcional): Ângulo alfa em <strong>graus</strong>. Valor padrão: <code>30</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone em <strong>m/s</strong>. Valor padrão: <code>10</code>.</li>
 </ul>
 <h3 id="secao-dronetractor">Seção <code>DroneTractor</code></h3>
 <ul>
 <li><strong>start_point</strong> (<code>Tuple[float, float]</code>): Ponto inicial do drone trator.</li>
-<li><strong>width_between_tracks</strong> (<code>int</code>): Largura entre as trilhas.</li>
-<li><strong>max_length</strong> (<code>int</code>): Comprimento máximo.</li>
+<li><strong>width_between_tracks</strong> (<code>int</code>): Largura entre as trilhas em metros.</li>
+<li><strong>max_length</strong> (<code>int</code>): Comprimento máximo em metros.</li>
 <li><strong>max_turns</strong> (<code>int</code>): Número máximo de voltas.</li>
 <li><strong>orientation</strong> (<code>str</code>, opcional): Orientação do drone. Valor padrão: <code>"horizontal"</code>.</li>
-<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone em <strong>m/s</strong>. Valor padrão: <code>10</code>.</li>
 </ul>
 <h3 id="secao-dronestatic">Seção <code>DroneStatic</code></h3>
 <ul>
@@ -159,15 +159,15 @@
 <h3 id="secao-dronesquare">Seção <code>DroneSquare</code></h3>
 <ul>
 <li><strong>center_point</strong> (<code>Tuple[float, float]</code>): Ponto central do drone quadrado.</li>
-<li><strong>side_length</strong> (<code>int</code>): Comprimento do lado do quadrado.</li>
-<li><strong>angle_degrees</strong> (<code>int</code>, opcional): Ângulo do quadrado. Valor padrão: <code>90</code>.</li>
-<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+<li><strong>side_length</strong> (<code>int</code>): Comprimento do lado do quadrado em metros.</li>
+<li><strong>angle_degrees</strong> (<code>int</code>, opcional): Ângulo do quadrado em <strong>graus</strong>. Valor padrão: <code>90</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone em <strong>m/s</strong>. Valor padrão: <code>10</code>.</li>
 </ul>
 <h3 id="secao-dronefollowing">Seção <code>DroneFollowing</code></h3>
 <ul>
 <li><strong>vehicle_id</strong> (<code>str</code>, opcional): ID do veículo a ser seguido. Valor padrão: <code>"0"</code>.</li>
-<li><strong>offset_distance</strong> (<code>int</code>, opcional): Distância de offset. Valor padrão: <code>10</code>.</li>
-<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone. Valor padrão: <code>10</code>.</li>
+<li><strong>offset_distance</strong> (<code>int</code>, opcional): Distância de offset em metros. Valor padrão: <code>10</code>.</li>
+<li><strong>max_speed</strong> (<code>int</code>, opcional): Velocidade máxima do drone em <strong>m/s</strong>. Valor padrão: <code>10</code>.</li>
 </ul>
 <h3 id="secao-exportvideo">Seção <code>ExportVideo</code></h3>
 <ul>
